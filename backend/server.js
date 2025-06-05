@@ -1,8 +1,10 @@
 const express = require('express');
+const cors = require('cors');
 const app = express();
 const port = process.env.PORT || 3001;
 
 app.use(express.json());
+app.use(cors());
 
 const products = [
   { id: 1, name: 'Example Product', description: 'An example product', price: 9.99, image: '/placeholder.png' }
