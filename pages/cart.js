@@ -11,6 +11,7 @@ export default function Cart() {
         items.map((item, idx) => (
           <div key={idx}>
             {item.name} - ${item.price}
+            {item.color && <span> - {item.color}</span>}
           </div>
         ))
       ) : (

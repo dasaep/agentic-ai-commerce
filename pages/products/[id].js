@@ -28,6 +28,7 @@ export default function ProductDetail() {
       />
       <h1>{data.name}</h1>
       <p>${data.price}</p>
+      {data.color && <p>Color: {data.color}</p>}
       <p>{data.description}</p>
       <button onClick={() => addItem(data)}>Add to Cart</button>
     </Layout>

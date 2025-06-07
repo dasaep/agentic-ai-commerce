@@ -9,11 +9,11 @@ app.use(cors());
 const products = [
   {
     id: 1,
-    name: 'Luxe Silk Blouse',
-    description: 'Elegant silk blouse with subtle drape.',
-    price: 79.5,
-    color: 'Ivory',
-    image: '/placeholder.png'
+    name: 'Example Product',
+    description: 'An example product',
+    price: 9.99,
+    image: '/placeholder.png',
+    color: 'Red'
   },
   {
     id: 2,
