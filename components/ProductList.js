@@ -12,6 +12,9 @@ export default function ProductList({ products }) {
           </Link>
           <h3>{p.name}</h3>
           <p className={styles.price}>${p.price}</p>
+          {p.color && (
+            <p className={styles.color}>Color: {p.color}</p>
+          )}
           <Link href={`/products/${p.id}`}>View</Link>
         </div>
       ))}

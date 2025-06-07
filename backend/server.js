@@ -7,7 +7,14 @@ app.use(express.json());
 app.use(cors());
 
 const products = [
-  { id: 1, name: 'Example Product', description: 'An example product', price: 9.99, image: '/placeholder.png' }
+  {
+    id: 1,
+    name: 'Example Product',
+    description: 'An example product',
+    price: 9.99,
+    image: '/placeholder.png',
+    color: 'Red'
+  }
 ];
 
 app.get('/api/products', (req, res) => {
