@@ -1,10 +1,11 @@
 import React from "react";
 import { useRouter } from 'next/router';
 import useSWR from 'swr';
-import Nav from '../../components/Nav';
+import Layout from '../../components/Layout';
 import { useCart } from '../../lib/cartContext';
 
 const fetcher = url => fetch(url).then(r => r.json());
+
 
 export default function ProductDetail() {
   const router = useRouter();

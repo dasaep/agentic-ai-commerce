@@ -9,3 +9,18 @@ button {
   padding: 0.5rem 1rem;
   cursor: pointer;
 }
+/* Neutral palette and typography */
+:root {
+  --color-bg: #fffdfb;
+  --color-beige: #f7f6f2;
+  --color-gray-light: #ececec;
+  --color-text: #2d2d2d;
+  --link-color: #2a4b8d;
+  --link-hover: #1e3b70;
+  --spacing: 1rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Playfair Display', Georgia, serif;
+}
+
