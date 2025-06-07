@@ -17,9 +17,13 @@ export default function ProductDetail() {
   return (
     <div>
       <Nav />
-      <h1>{data.name}</h1>
-      <p>{data.description}</p>
-      <button onClick={() => addItem(data)}>Add to Cart</button>
+      <div className="container">
+        <img src={data.image} alt={data.name} style={{ maxWidth: '400px', width: '100%', height: 'auto' }} />
+        <h1>{data.name}</h1>
+        <p>${data.price}</p>
+        <p>{data.description}</p>
+        <button onClick={() => addItem(data)}>Add to Cart</button>
+      </div>
     </div>
   );
 }
