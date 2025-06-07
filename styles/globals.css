@@ -1,4 +1,26 @@
-body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
-nav { padding: 1rem; background: #333; color: white; }
-a { color: inherit; margin-right: 1rem; }
-.container { padding: 1rem; }
+body {
+  font-family: 'Lato', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Playfair Display', Georgia, serif;
+}
+
+nav {
+  padding: 1rem;
+  background: #333;
+  color: white;
+}
+
+nav a {
+  font-family: 'Playfair Display', Georgia, serif;
+  color: inherit;
+  margin-right: 1rem;
+}
+
+.container {
+  padding: 1rem;
+}
+
