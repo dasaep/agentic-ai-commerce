@@ -1,12 +1,11 @@
 import React from "react";
-import Nav from '../components/Nav';
+import Layout from '../components/Layout';
 
 export default function Account() {
   return (
-    <div>
-      <Nav />
+    <Layout>
       <h1>My Account</h1>
       <p>Account details would go here.</p>
-    </div>
+    </Layout>
   );
 }
