@@ -6,6 +6,7 @@ import { useCart } from '../../lib/cartContext';
 
 const fetcher = url => fetch(url).then(r => r.json());
 
+
 export default function ProductDetail() {
   const router = useRouter();
   const { id } = router.query;
@@ -15,10 +16,15 @@ export default function ProductDetail() {
   if (!data) return <div>Loading...</div>;
 
   return (
-    <Layout>
-      <h1>{data.name}</h1>
-      <p>{data.description}</p>
-      <button onClick={() => addItem(data)}>Add to Cart</button>
-    </Layout>
+    <div>
+      <Nav />
+      <div className="container">
+        <img src={data.image} alt={data.name} style={{ maxWidth: '400px', width: '100%', height: 'auto' }} />
+        <h1>{data.name}</h1>
+        <p>${data.price}</p>
+        <p>{data.description}</p>
+        <button onClick={() => addItem(data)}>Add to Cart</button>
+      </div>
+    </div>
   );
 }
