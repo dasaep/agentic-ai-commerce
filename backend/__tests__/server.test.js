@@ -7,19 +7,19 @@ app.use(express.json());
 const products = [
   {
     id: 1,
-    name: 'Luxe Silk Blouse',
-    description: 'Elegant silk blouse with subtle drape.',
-    price: 79.5,
-    color: 'Ivory',
-    image: '/placeholder.png'
+    name: 'Example Product',
+    description: 'An example product',
+    price: 9.99,
+    image: '/placeholder.png',
+    color: 'red'
   },
   {
     id: 2,
-    name: 'Tailored Pencil Skirt',
-    description: 'Classic knee-length skirt for office wear.',
-    price: 69.5,
-    color: 'Charcoal',
-    image: '/placeholder.png'
+    name: 'Second Product',
+    description: 'Another item',
+    price: 19.99,
+    image: '/placeholder.png',
+    color: 'blue'
   }
 ];
 app.get('/api/products', (req, res) => res.json(products));
@@ -33,6 +33,14 @@ describe('API', () => {
   it('should list products', async () => {
     const res = await request(app).get('/api/products');
     expect(res.statusCode).toBe(200);
-    expect(res.body.length).toBeGreaterThan(0);
+    expect(res.body.length).toBe(products.length);
+    res.body.forEach(p => expect(p).toHaveProperty('color'));
+  });
+
+  it('should get a single product with color', async () => {
+    const res = await request(app).get('/api/products/1');
+    expect(res.statusCode).toBe(200);
+    expect(res.body).toHaveProperty('color');
+    expect(res.body.id).toBe(1);
   });
 });
