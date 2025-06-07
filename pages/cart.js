@@ -1,12 +1,11 @@
 import React from "react";
-import Nav from '../components/Nav';
+import Layout from '../components/Layout';
 import { useCart } from '../lib/cartContext';
 
 export default function Cart() {
   const { items } = useCart();
   return (
-    <div>
-      <Nav />
+    <Layout>
       <h1>Cart</h1>
       {items.length ? (
         items.map((item, idx) => (
@@ -17,6 +16,6 @@ export default function Cart() {
       ) : (
         <p>Cart is empty</p>
       )}
-    </div>
+    </Layout>
   );
 }

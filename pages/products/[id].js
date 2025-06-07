@@ -1,7 +1,7 @@
 import React from "react";
 import { useRouter } from 'next/router';
 import useSWR from 'swr';
-import Nav from '../../components/Nav';
+import Layout from '../../components/Layout';
 import { useCart } from '../../lib/cartContext';
 
 const fetcher = url => fetch(url).then(r => r.json());
@@ -15,11 +15,10 @@ export default function ProductDetail() {
   if (!data) return <div>Loading...</div>;
 
   return (
-    <div>
-      <Nav />
+    <Layout>
       <h1>{data.name}</h1>
       <p>{data.description}</p>
       <button onClick={() => addItem(data)}>Add to Cart</button>
-    </div>
+    </Layout>
   );
 }
