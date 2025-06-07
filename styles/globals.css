@@ -1,3 +1,4 @@
+
 body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
 nav { padding: 1rem; background: #333; color: white; }
 nav a { margin-right: 1.5rem; color: inherit; text-decoration: none; }
@@ -5,3 +6,10 @@ nav a:hover { text-decoration: underline; }
 footer { padding: 1rem; background: #eee; text-align: center; }
 a { color: inherit; }
 .container { padding: 1rem; }
+
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Playfair Display', Georgia, serif;
+}
+
+
