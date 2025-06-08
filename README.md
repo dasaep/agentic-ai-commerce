@@ -5,6 +5,35 @@ A simple ecommerce app built with Next.js and Express. The backend exposes mock 
 - [Commercetools Apparel Product Model](docs/commercetools-product-model.md)
 - [Architecture Overview](docs/architecture.md)
 
+## Code Structure
+
+The application is split between a simple Express backend and a Next.js frontend.
+The diagram below highlights the major folders:
+
+```mermaid
+graph TD
+    subgraph Frontend
+        pages[[pages/]]
+        components[[components/]]
+        lib[[lib/]]
+    end
+    subgraph Backend
+        backend[[backend/server.js]]
+    end
+    pages -- use --> components
+    pages -- use --> lib
+    components -- use --> lib
+    pages -- fetch --> backend
+```
+
+Key files:
+
+- [pages/index.js](pages/index.js) – home page listing products
+- [pages/products/[id].js](pages/products/%5Bid%5D.js) – product detail page
+- [components/ProductList.js](components/ProductList.js) – renders product grid
+- [lib/cartContext.js](lib/cartContext.js) – in-memory cart store
+- [backend/server.js](backend/server.js) – mock API endpoints
+
 ## Development
 
 ```bash
