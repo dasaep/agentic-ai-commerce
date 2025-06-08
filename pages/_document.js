@@ -1,5 +1,8 @@
 import React from 'react';
 import { Html, Head, Main, NextScript } from 'next/document';
+/**
+ * Custom Document for injecting fonts and global HTML structure.
+ */
 
 export default function Document() {
   return (

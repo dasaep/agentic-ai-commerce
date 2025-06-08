@@ -3,6 +3,10 @@ import { useRouter } from 'next/router';
 import useSWR from 'swr';
 import Layout from '../../components/Layout';
 import { useCart } from '../../lib/cartContext';
+/**
+ * Product detail page that displays information about a single product
+ * and allows the user to add it to their cart.
+ */
 
 const fetcher = url => fetch(url).then(r => r.json());
 

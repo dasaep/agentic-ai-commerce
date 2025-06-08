@@ -1,6 +1,10 @@
 import React from "react";
 import Link from 'next/link';
 import styles from './ProductList.module.css';
+/**
+ * Renders a responsive grid of products with links to detail pages.
+ * Each item shows an image, name, price and optional color.
+ */
 
 export default function ProductList({ products }) {
   return (

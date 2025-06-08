@@ -1,6 +1,10 @@
 import React from "react";
 import Link from 'next/link';
 
+/**
+ * Global site header displayed across all pages.
+ * Contains navigation links for primary routes.
+ */
 export default function Header() {
   return (
     <header>

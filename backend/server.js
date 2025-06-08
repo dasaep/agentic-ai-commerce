@@ -1,3 +1,9 @@
+/**
+ * Simple Express server providing mock product APIs.
+ * Endpoints:
+ *   GET /api/products      - list all products
+ *   GET /api/products/:id - retrieve a product by id.
+ */
 const express = require('express');
 const cors = require('cors');
 const app = express();
