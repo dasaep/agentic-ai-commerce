@@ -2,6 +2,9 @@ import React from "react";
 import useSWR from 'swr';
 import ProductList from '../components/ProductList';
 import Layout from '../components/Layout';
+/**
+ * Home page displaying a list of available products.
+ */
 
 const fetcher = url => fetch(url).then(r => r.json());
 

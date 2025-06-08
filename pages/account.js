@@ -1,5 +1,8 @@
 import React from "react";
 import Layout from '../components/Layout';
+/**
+ * Account page placeholder displayed to logged-in users.
+ */
 
 export default function Account() {
   return (
