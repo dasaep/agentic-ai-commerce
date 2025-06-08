@@ -1,5 +1,6 @@
 const { expect } = require('@wdio/globals');
 
+
 describe('E-commerce flow', () => {
   it('loads home page and shows products', async () => {
     await browser.url('http://localhost:3000');
