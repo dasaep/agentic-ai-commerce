@@ -3,6 +3,7 @@
 A simple ecommerce app built with Next.js and Express. The backend exposes mock APIs and the frontend uses a mobile-first React design. Tests cover API and UI behavior.
 
 - [Commercetools Apparel Product Model](docs/commercetools-product-model.md)
+- [Architecture Overview](docs/architecture.md)
 
 ## Development
 
