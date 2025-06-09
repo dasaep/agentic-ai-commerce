@@ -1,6 +1,6 @@
 import React from "react";
-import Layout from '../components/Layout';
-import { useCart } from '../lib/cartContext';
+import Layout from '../../components/Layout';
+import { useCart } from '../../lib/cartContext';
 /**
  * Shopping cart page listing items added by the user.
  */

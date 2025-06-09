@@ -1,25 +1,22 @@
-import React from 'react';
-import { Html, Head, Main, NextScript } from 'next/document';
-/**
- * Custom Document for injecting fonts and global HTML structure.
- */
+import '../styles/globals.css';
+import { CartProvider } from '../lib/cartContext';
 
-export default function Document() {
+export default function RootLayout({ children }) {
   return (
-    <Html>
-      <Head>
+    <html>
+      <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
         <link
           href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Playfair+Display:wght@400;700&display=swap"
           rel="stylesheet"
         />
-      </Head>
+      </head>
       <body>
-        <Main />
-        <NextScript />
+        <CartProvider>
+          {children}
+        </CartProvider>
       </body>
-    </Html>
+    </html>
   );
 }
-
