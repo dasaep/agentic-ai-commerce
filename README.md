@@ -1,21 +1,25 @@
 # Agentic AI Commerce
 
+
 A simple ecommerce app built with Next.js. The backend uses Next.js API routes to expose mock APIs and the frontend employs a mobile-first React design. Tests cover API and UI behavior.
+
 
 - [Commercetools Apparel Product Model](docs/commercetools-product-model.md)
 - [Architecture Overview](docs/architecture.md)
+- [Deployment Guide](docs/deployment.md)
 
 ## Code Structure
 
 The application is built entirely with Next.js and uses API routes for the backend functionality.
 The diagram below highlights the major folders:
 
+
 ```mermaid
 graph TD
-    subgraph Frontend
-        pages[[pages/]]
-        components[[components/]]
-        lib[[lib/]]
+    subgraph App
+        pages[[src/app/]]
+        api[[src/app/api/]]
+        adapters[[src/lib/adapters/]]
     end
     subgraph Backend
         api[[src/app/api/]]
@@ -34,19 +38,46 @@ Key files:
 - [lib/cartContext.js](lib/cartContext.js) – in-memory cart store
 - [src/app/api/](src/app/api/) – mock API endpoints
 
+
 ## Development
 
 ```bash
 npm install
+```
+
+Initialize TypeScript (optional but recommended):
+
+```bash
+npx tsc --init
+```
+
+Create a `.env.local` file for API credentials. Example:
+
+```env
+CT_API_URL=https://api.example.com
+SHOPIFY_URL=https://shop.example.com
+SHOPIFY_TOKEN=token
+```
+
+Start the development server:
+
+```bash
 npm run dev
 ```
+The app will be available at `http://localhost:3000`.
+
+### Environment Variables
 
 This starts the Next.js dev server (including API routes) on port 3000.
 
 Run tests:
 
 ```bash
-npm test          # unit tests
-npm run test:e2e  # Playwright end-to-end tests
-# Run `npx playwright install` once before running e2e tests.
+npm test             # unit tests
+npm run test:coverage # unit test coverage
+npm run test:e2e     # Playwright end-to-end tests
+npm run cypress      # proxy command for Cypress (uses Playwright)
 ```
+
+End-to-end tests use **Playwright** and should maintain over **70% coverage**.
+Run `npx playwright install` once before executing the E2E suite.
