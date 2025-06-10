@@ -1,3 +1,4 @@
+'use client';
 import { createContext, useContext, useState, ReactNode } from 'react';
 /**
  * React context providing a simple in-memory shopping cart.
