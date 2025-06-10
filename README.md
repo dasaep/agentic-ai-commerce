@@ -79,5 +79,9 @@ npm run test:e2e     # Playwright end-to-end tests
 npm run cypress      # proxy command for Cypress (uses Playwright)
 ```
 
-End-to-end tests use **Playwright** and should maintain over **70% coverage**.
-Run `npx playwright install` once before executing the E2E suite.
+## Security
+
+The Express backend applies [Helmet](https://github.com/helmetjs/helmet) to set
+secure HTTP headers. CORS is restricted to requests from
+`http://localhost:3000` by default. You can override the allowed origin by
+setting the `CLIENT_ORIGIN` environment variable.
