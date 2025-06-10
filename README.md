@@ -43,6 +43,10 @@ npm run dev
 
 This starts the Express API on port 3001 and Next.js on port 3000.
 
+### Environment Variables
+
+Copy `.env.local.example` to `.env.local` and fill in the values for your environment. The frontend uses `NEXT_PUBLIC_API_URL` to know where the API is running.
+
 Run tests:
 
 ```bash
