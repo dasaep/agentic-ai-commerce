@@ -46,7 +46,11 @@ This starts the Express API on port 3001 and Next.js on port 3000.
 Run tests:
 
 ```bash
-npm test          # unit tests
-npm run test:e2e  # Playwright end-to-end tests
-# Run `npx playwright install` once before running e2e tests.
+npm test             # unit tests
+npm run test:coverage # unit test coverage
+npm run test:e2e     # Playwright end-to-end tests
+npm run cypress      # proxy command for Cypress (uses Playwright)
 ```
+
+End-to-end tests use **Playwright** and should maintain over **70% coverage**.
+Run `npx playwright install` once before executing the E2E suite.
