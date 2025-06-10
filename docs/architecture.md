@@ -42,7 +42,7 @@ export async function GET() {
 const fetcher = url => fetch(url).then(r => r.json());
 
 export default function Home() {
-  const { data } = useSWR('/api/products', fetcher);
+  const { data } = useSWR('/api/mock/products', fetcher);
   return (
     <Layout>
       <h1>Store</h1>
@@ -59,7 +59,7 @@ const fetcher = url => fetch(url).then(r => r.json());
 export default function ProductDetail() {
   const router = useRouter();
   const { id } = router.query;
-  const { data } = useSWR(id ? `/api/products/${id}` : null, fetcher);
+  const { data } = useSWR(id ? `/api/mock/products/${id}` : null, fetcher);
   const { addItem } = useCart();
   // ...render product and add-to-cart button...
 }
