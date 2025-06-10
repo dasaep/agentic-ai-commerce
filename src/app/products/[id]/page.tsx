@@ -8,12 +8,13 @@ import { useCart } from '../../../lib/cartContext';
  */
 
 const fetcher = (url: string) => fetch(url).then(r => r.json());
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL;
 
 
 export default function ProductDetail() {
   const router = useRouter();
   const { id } = router.query;
-  const { data } = useSWR(id ? `/api/mock/products/${id}` : null, fetcher);
+  const { data } = useSWR(id ? `${API_BASE_URL}/api/products/${id}` : null, fetcher);
   const { addItem } = useCart();
 
   if (!data) return (
