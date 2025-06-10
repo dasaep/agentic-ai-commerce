@@ -1,13 +1,13 @@
 # Agentic AI Commerce
 
-A simple ecommerce app built with Next.js and Express. The backend exposes mock APIs and the frontend uses a mobile-first React design. Tests cover API and UI behavior.
+A simple ecommerce app built with Next.js. The backend uses Next.js API routes to expose mock APIs and the frontend employs a mobile-first React design. Tests cover API and UI behavior.
 
 - [Commercetools Apparel Product Model](docs/commercetools-product-model.md)
 - [Architecture Overview](docs/architecture.md)
 
 ## Code Structure
 
-The application is split between a simple Express backend and a Next.js frontend.
+The application is built entirely with Next.js and uses API routes for the backend functionality.
 The diagram below highlights the major folders:
 
 ```mermaid
@@ -18,12 +18,12 @@ graph TD
         lib[[lib/]]
     end
     subgraph Backend
-        backend[[backend/server.js]]
+        api[[src/app/api/]]
     end
     pages -- use --> components
     pages -- use --> lib
     components -- use --> lib
-    pages -- fetch --> backend
+    pages -- fetch --> api
 ```
 
 Key files:
@@ -32,7 +32,7 @@ Key files:
 - [pages/products/[id].js](pages/products/%5Bid%5D.js) – product detail page
 - [components/ProductList.js](components/ProductList.js) – renders product grid
 - [lib/cartContext.js](lib/cartContext.js) – in-memory cart store
-- [backend/server.js](backend/server.js) – mock API endpoints
+- [src/app/api/](src/app/api/) – mock API endpoints
 
 ## Development
 
@@ -41,7 +41,7 @@ npm install
 npm run dev
 ```
 
-This starts the Express API on port 3001 and Next.js on port 3000.
+This starts the Next.js dev server (including API routes) on port 3000.
 
 Run tests:
 

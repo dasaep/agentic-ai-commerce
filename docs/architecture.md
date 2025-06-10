@@ -17,7 +17,7 @@ graph LR
     end
 
     subgraph Backend
-        API[Express API]
+        API[Next.js API Routes]
         Data[(In-memory product list)]
         API -- reads --> Data
     end
@@ -26,21 +26,15 @@ graph LR
     FE -- SWR fetch --> API
 ```
 
-The Next.js frontend listens on port `3000` and the Express backend serves a mock API on port `3001`. Cart state is maintained client side in `lib/cartContext.js` while data is fetched from the API using SWR.
+The Next.js frontend listens on port `3000` and its API routes under `/pages/api` provide the mock API. Cart state is maintained client side in `lib/cartContext.js` while data is fetched from the API using SWR.
 
 ### Key Components
 
-#### Backend (`backend/server.js`)
+#### API Route (`src/app/api/products/route.js`)
 ```javascript
-app.get('/api/products', (req, res) => {
-  res.json(products);
-});
-
-app.get('/api/products/:id', (req, res) => {
-  const product = products.find(p => p.id === parseInt(req.params.id));
-  if (product) return res.json(product);
-  res.status(404).json({ message: 'Product not found' });
-});
+export async function GET() {
+  return Response.json(products);
+}
 ```
 
 #### Home Page (`pages/index.js`)
@@ -48,7 +42,7 @@ app.get('/api/products/:id', (req, res) => {
 const fetcher = url => fetch(url).then(r => r.json());
 
 export default function Home() {
-  const { data } = useSWR('http://localhost:3001/api/products', fetcher);
+  const { data } = useSWR('/api/products', fetcher);
   return (
     <Layout>
       <h1>Store</h1>
@@ -65,7 +59,7 @@ const fetcher = url => fetch(url).then(r => r.json());
 export default function ProductDetail() {
   const router = useRouter();
   const { id } = router.query;
-  const { data } = useSWR(id ? `http://localhost:3001/api/products/${id}` : null, fetcher);
+  const { data } = useSWR(id ? `/api/products/${id}` : null, fetcher);
   const { addItem } = useCart();
   // ...render product and add-to-cart button...
 }
@@ -87,7 +81,7 @@ export function CartProvider({ children }) {
 sequenceDiagram
     participant U as User Browser
     participant FE as Next.js Page
-    participant API as Express API
+    participant API as Next.js API Route
     participant D as Product Data
 
     U->>FE: Request /products/1
@@ -100,4 +94,4 @@ sequenceDiagram
     FE->>FE: useCart.addItem(product)
 ```
 
-When a user views a product detail page, the page fetches the product from the Express API and renders it. Selecting **Add to Cart** calls `useCart.addItem`, storing the product in React context.
+When a user views a product detail page, the page fetches the product from the Next.js API route and renders it. Selecting **Add to Cart** calls `useCart.addItem`, storing the product in React context.
