@@ -1,6 +1,8 @@
 # Agentic AI Commerce
 
-A simple ecommerce app built with Next.js. Mock APIs are served via built-in Next.js API routes and the frontend uses a mobile-first React design. Tests cover API and UI behavior.
+
+A simple ecommerce app built with Next.js. The backend uses Next.js API routes to expose mock APIs and the frontend employs a mobile-first React design. Tests cover API and UI behavior.
+
 
 - [Commercetools Apparel Product Model](docs/commercetools-product-model.md)
 - [Architecture Overview](docs/architecture.md)
@@ -8,10 +10,9 @@ A simple ecommerce app built with Next.js. Mock APIs are served via built-in Nex
 
 ## Code Structure
 
-All server functionality lives in Next.js API routes under `src/app/api`. These
-routes call adapters in `src/lib/adapters` which in turn communicate with
-external commerce APIs or return mock data. The diagram below highlights the
-major folders:
+The application is built entirely with Next.js and uses API routes for the backend functionality.
+The diagram below highlights the major folders:
+
 
 ```mermaid
 graph TD
@@ -20,18 +21,23 @@ graph TD
         api[[src/app/api/]]
         adapters[[src/lib/adapters/]]
     end
-    pages -- call --> api
-    api -- use --> adapters
+    subgraph Backend
+        api[[src/app/api/]]
+    end
+    pages -- use --> components
+    pages -- use --> lib
+    components -- use --> lib
+    pages -- fetch --> api
 ```
 
 Key files:
 
-- `src/app/page.js` – home page listing products
-- `src/app/products/[id]/page.js` – product detail page
-- `src/lib/cartContext.js` – in-memory cart store
-- `src/app/api/mock/[...mockEndpoints].ts` – local mock API routes
-- `src/lib/adapters/commercetoolsAdapter.ts` – CommerceTools adapter
-- `src/lib/adapters/shopifyAdapter.ts` – Shopify adapter
+- [pages/index.js](pages/index.js) – home page listing products
+- [pages/products/[id].js](pages/products/%5Bid%5D.js) – product detail page
+- [components/ProductList.js](components/ProductList.js) – renders product grid
+- [lib/cartContext.js](lib/cartContext.js) – in-memory cart store
+- [src/app/api/](src/app/api/) – mock API endpoints
+
 
 ## Development
 
@@ -62,7 +68,7 @@ The app will be available at `http://localhost:3000`.
 
 ### Environment Variables
 
-Copy `.env.local.example` to `.env.local` and fill in the values for your environment. The frontend uses `NEXT_PUBLIC_API_URL` to know where the API is running.
+This starts the Next.js dev server (including API routes) on port 3000.
 
 Run tests:
 
