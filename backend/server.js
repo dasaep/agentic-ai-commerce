@@ -6,11 +6,14 @@
  */
 const express = require('express');
 const cors = require('cors');
+const helmet = require('helmet');
 const app = express();
 const port = process.env.PORT || 3001;
 
 app.use(express.json());
-app.use(cors());
+app.use(helmet());
+const allowedOrigin = process.env.CLIENT_ORIGIN || 'http://localhost:3000';
+app.use(cors({ origin: allowedOrigin }));
 
 const products = [
   {
