@@ -11,7 +11,7 @@ graph LR
     end
 
     subgraph Frontend
-        FE[Next.js + React<br/>pages/*]
+        FE[Next.js + React<br/>src/app/*]
         Cart[Cart Context]
         FE -- uses --> Cart
     end
@@ -26,7 +26,7 @@ graph LR
     FE -- SWR fetch --> API
 ```
 
-The Next.js frontend listens on port `3000` and its API routes under `/pages/api` provide the mock API. Cart state is maintained client side in `lib/cartContext.js` while data is fetched from the API using SWR.
+The Next.js frontend listens on port `3000` and its API routes under `/src/app/api` provide the mock API. Cart state is maintained client side in `lib/cartContext.js` while data is fetched from the API using SWR.
 
 ### Key Components
 
@@ -37,7 +37,7 @@ export async function GET() {
 }
 ```
 
-#### Home Page (`pages/index.js`)
+#### Home Page (`src/app/page.tsx`)
 ```javascript
 const fetcher = url => fetch(url).then(r => r.json());
 
@@ -52,7 +52,7 @@ export default function Home() {
 }
 ```
 
-#### Product Detail (`pages/products/[id].js`)
+#### Product Detail (`src/app/products/[id]/page.tsx`)
 ```javascript
 const fetcher = url => fetch(url).then(r => r.json());
 
