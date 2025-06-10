@@ -4,6 +4,7 @@ A simple ecommerce app built with Next.js. Mock APIs are served via built-in Nex
 
 - [Commercetools Apparel Product Model](docs/commercetools-product-model.md)
 - [Architecture Overview](docs/architecture.md)
+- [Deployment Guide](docs/deployment.md)
 
 ## Code Structure
 
