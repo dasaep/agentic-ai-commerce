@@ -1,3 +1,4 @@
 node_modules
 .next
 test-results
+.env.local
