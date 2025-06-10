@@ -1,8 +1,6 @@
 # Agentic AI Commerce
 
-
 A simple ecommerce app built with Next.js. The backend uses Next.js API routes to expose mock APIs and the frontend employs a mobile-first React design. Tests cover API and UI behavior.
-
 
 - [Commercetools Apparel Product Model](docs/commercetools-product-model.md)
 - [Architecture Overview](docs/architecture.md)
@@ -12,7 +10,6 @@ A simple ecommerce app built with Next.js. The backend uses Next.js API routes t
 
 The application is built entirely with Next.js and uses API routes for the backend functionality.
 The diagram below highlights the major folders:
-
 
 ```mermaid
 graph TD
@@ -38,8 +35,10 @@ Key files:
 - [lib/cartContext.js](lib/cartContext.js) – in-memory cart store
 - [src/app/api/](src/app/api/) – mock API endpoints
 
-
 ## Development
+
+This project targets Node.js **18** or **20**. Newer versions like Node 22 are
+not yet supported by Next.js 13 and may cause build failures.
 
 ```bash
 npm install
@@ -64,6 +63,7 @@ Start the development server:
 ```bash
 npm run dev
 ```
+
 The app will be available at `http://localhost:3000`.
 
 ### Environment Variables
