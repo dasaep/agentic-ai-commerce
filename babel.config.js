@@ -1,3 +1,4 @@
 module.exports = {
-  presets: ['@babel/preset-env', '@babel/preset-react', '@babel/preset-typescript'],
+  // Use Next.js default Babel preset to enable JSX without explicit React import
+  presets: ['next/babel'],
 };
