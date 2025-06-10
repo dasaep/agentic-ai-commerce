@@ -7,9 +7,10 @@ import Layout from '../components/Layout';
  */
 
 const fetcher = url => fetch(url).then(r => r.json());
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL;
 
 export default function Home() {
-  const { data } = useSWR('http://localhost:3001/api/products', fetcher);
+  const { data } = useSWR(`${API_BASE_URL}/api/products`, fetcher);
   return (
     <Layout>
       <h1>Store</h1>
