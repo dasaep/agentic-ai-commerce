@@ -1,4 +1,3 @@
-import React from "react";
 
 /**
  * Simple site footer rendered at the bottom of every page.

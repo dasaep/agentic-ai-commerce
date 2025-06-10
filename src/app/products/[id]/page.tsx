@@ -1,4 +1,3 @@
-import React from "react";
 import { useRouter } from 'next/router';
 import useSWR from 'swr';
 import Layout from '../../../components/Layout';
@@ -8,13 +7,13 @@ import { useCart } from '../../../lib/cartContext';
  * and allows the user to add it to their cart.
  */
 
-const fetcher = url => fetch(url).then(r => r.json());
+const fetcher = (url: string) => fetch(url).then(r => r.json());
 
 
 export default function ProductDetail() {
   const router = useRouter();
   const { id } = router.query;
-  const { data } = useSWR(id ? `http://localhost:3001/api/products/${id}` : null, fetcher);
+  const { data } = useSWR(id ? `/api/mock/products/${id}` : null, fetcher);
   const { addItem } = useCart();
 
   if (!data) return (

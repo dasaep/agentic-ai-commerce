@@ -1,4 +1,3 @@
-import React from "react";
 import useSWR from 'swr';
 import ProductList from '../components/ProductList';
 import Layout from '../components/Layout';
@@ -6,10 +5,10 @@ import Layout from '../components/Layout';
  * Home page displaying a list of available products.
  */
 
-const fetcher = url => fetch(url).then(r => r.json());
+const fetcher = (url: string) => fetch(url).then(r => r.json());
 
 export default function Home() {
-  const { data } = useSWR('http://localhost:3001/api/products', fetcher);
+  const { data } = useSWR('/api/mock/products', fetcher);
   return (
     <Layout>
       <h1>Store</h1>

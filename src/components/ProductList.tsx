@@ -1,4 +1,3 @@
-import React from "react";
 import Link from 'next/link';
 import styles from './ProductList.module.css';
 /**
@@ -6,7 +5,15 @@ import styles from './ProductList.module.css';
  * Each item shows an image, name, price and optional color.
  */
 
-export default function ProductList({ products }) {
+interface Product {
+  id: number;
+  name: string;
+  price: number;
+  image: string;
+  color?: string;
+}
+
+export default function ProductList({ products }: { products: Product[] }) {
   return (
     <div className={`container ${styles.grid}`}>
       {products.map(p => (
