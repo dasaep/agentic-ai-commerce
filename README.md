@@ -4,6 +4,7 @@ A simple ecommerce app built with Next.js and Express. The backend exposes mock 
 
 - [Commercetools Apparel Product Model](docs/commercetools-product-model.md)
 - [Architecture Overview](docs/architecture.md)
+- [Deployment Guide](docs/deployment.md)
 
 ## Code Structure
 
