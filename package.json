@@ -43,21 +43,5 @@
     "@wdio/spec-reporter": "^8.39.0",
     "wdio-chromedriver-service": "^8.1.1",
     "chromedriver": "^125.0.0"
-  },
-  "jest": {
-    "testEnvironment": "jsdom",
-    "setupFilesAfterEnv": [
-      "<rootDir>/jest.setup.js"
-    ],
-    "transform": {
-      "^.+\\.(t|j)sx?$": "babel-jest"
-    },
-    "testMatch": [
-      "**/__tests__/**/*.(spec|test).(ts|tsx|js)"
-    ],
-    "moduleNameMapper": {
-      "^@/(.*)$": "<rootDir>/$1",
-      "\\.module\\.css$": "identity-obj-proxy"
-    }
   }
 }
