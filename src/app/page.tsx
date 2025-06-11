@@ -1,4 +1,5 @@
-import { useSWR } from 'swr';
+"use client";
+import useSWR from 'swr';
 import ProductList from '../components/ProductList';
 import Layout from '../components/Layout';
 /**
