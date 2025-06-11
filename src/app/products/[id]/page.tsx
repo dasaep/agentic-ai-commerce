@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router';
-import useSWR from 'swr';
+import { useSWR } from 'swr';
 import Layout from '../../../components/Layout';
 import { useCart } from '../../../lib/cartContext';
 /**
