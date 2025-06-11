@@ -1,3 +1,4 @@
+'use client';
 import Layout from '../../components/Layout';
 import { useCart } from '../../lib/cartContext';
 /**
