@@ -1,5 +1,6 @@
-import { useRouter } from 'next/router';
-import { useSWR } from 'swr';
+'use client';
+import { useParams } from 'next/navigation';
+import useSWR from 'swr';
 import Layout from '../../../components/Layout';
 import { useCart } from '../../../lib/cartContext';
 /**
@@ -12,8 +13,8 @@ const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL;
 
 
 export default function ProductDetail() {
-  const router = useRouter();
-  const { id } = router.query;
+  const params = useParams<{ id: string }>();
+  const { id } = params;
   const { data } = useSWR(id ? `${API_BASE_URL}/api/products/${id}` : null, fetcher);
   const { addItem } = useCart();
 
