@@ -1,4 +1,4 @@
-import useSWR from 'swr';
+import { useSWR } from 'swr';
 import ProductList from '../components/ProductList';
 import Layout from '../components/Layout';
 /**
